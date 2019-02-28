@@ -10,7 +10,7 @@ Requirements for use:
 * Fluentd configuration mounted at `/fluentd.conf`
 * GCP service account credentails mounted at `/application_default_credentials.json`
 
-[`sample-google-fluentd.conf`](./sample-google-fluentd.conf) shows the recommended Fluentd configuration.
+[`sample-google-fluentd.conf`](./config/sample-google-fluentd.conf) shows the recommended Fluentd configuration.
 
 See the
 [Google Cloud Plugin docs](https://github.com/GoogleCloudPlatform/fluent-plugin-google-cloud)
