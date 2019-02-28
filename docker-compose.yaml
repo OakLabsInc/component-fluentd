@@ -1,13 +1,16 @@
 ---
 version: '3'
 
-volumes:
-  automatic:
 services:
 
-  fluentdfoo:
-    image: fluent/fluentd:v1.3.3-1.0
-    network_mode: host
+  fluentd:
+    build: .
+    image: index.docker.io/oaklabs/component-fluentd:${VERSION-latest}
     volumes:
-      - ./fluentdExample.conf:/fluentd/etc/fluent.conf:ro
-      - ./google-cloud-credentials.json:/etc/google/auth/application_default_credentials.json:ro
+      - ./config:/config:ro
+      - ./secrets:/secrets:ro
+    environment:
+      FLUENTD_CONFIG: '/config/google-fluentd-forward.conf'
+      GOOGLE_ZONE: 'us-central1-a'
+      GOOGLE_APPLICATION_CREDENTIALS: '/secrets/default-credentials.json'
+
