@@ -1,18 +1,18 @@
-# Google Cloud Platform Fluentd Logger
+# OakOS Component - FluentD Logger
 
 This component uses
 [fluentd](https://docs.fluentd.org/v1.0/articles/quickstart) to send
 logs to GCP Stackdriver. It can be adapted to send logs to other
-services and to receive logs from application by a variety of methods.
+services and to receive logs from application by a variety of
+methods. It also comes with the `fluent-plugin-google-cloud` plugin
+installed.
 
-Requirements for use:
-
-* Fluentd configuration mounted at `/fluentd.conf`
-* GCP service account credentails mounted at `/application_default_credentials.json`
-
-[`sample-google-fluentd.conf`](./config/sample-google-fluentd.conf) shows the recommended Fluentd configuration.
+The container expects a Fluentd configuration to be mounted at
+`/fluentd.conf`. If using the Google Cloud plugin to send logs to
+Stackdriver, a service account credentials file should be mounted at
+`/gcp-credentials.json` (according to the
+`GOOGLE_APPLICATION_CREDENTIALS` env var).
 
 See the
 [Google Cloud Plugin docs](https://github.com/GoogleCloudPlatform/fluent-plugin-google-cloud)
-for instructions on getting GCP service account credentials for
-fluentd.
+for instructions on getting GCP service account credentials.
