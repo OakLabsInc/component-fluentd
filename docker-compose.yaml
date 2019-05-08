@@ -7,10 +7,5 @@ services:
     build: .
     image: index.docker.io/oaklabs/component-fluentd:${VERSION-latest}
     volumes:
-      - ./config:/config:ro
-      - ./secrets:/secrets:ro
-    environment:
-      FLUENTD_CONFIG: '/config/google-fluentd-forward.conf'
-      GOOGLE_ZONE: 'us-central1-a'
-      GOOGLE_APPLICATION_CREDENTIALS: '/secrets/default-credentials.json'
-
+      - ./fluentd.conf:/fluentd.conf:ro
+      - ./gcp-credentials.json:/gcp-credentials.json:ro
