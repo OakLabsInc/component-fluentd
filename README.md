@@ -1,16 +1,16 @@
-# OakOS Component - FluentD Logger for Logz.io
+# OakOS Component - FluentD Logger for Loggly
 
 This component uses
 [fluentd](https://docs.fluentd.org/v1.0/articles/quickstart) to send
-logs to logz.io. All of the containers in your OakOS services array will have their logs forwarded.
+logs to Loggly. All of the containers in your OakOS services array will have their logs forwarded.
 
-After creating an account on [https://logz.io/](https://logz.io/) you can go to
-[https://app.logz.io/#/dashboard/settings/general](https://app.logz.io/#/dashboard/settings/general) to get your personal token. This token will need to be passed as an environmental variable at install time like: `"LOGZ_TOKEN": "xxxxxxxxxxxxxxxxxxxxxxxx"`
+After creating an account on [https://www.loggly.com/](https://www.loggly.com) you can go to
+[https://zivelo.loggly.com/account/users/api/tokens](https://zivelo.loggly.com/account/users/api/tokens) to get your personal token. This token will need to be passed as an environmental variable at install time like: `"LOGGLY_TOKEN": "xxxxxxxxxxxxxxxxxxxxxxxx"`
 
 This container can be adapted to send logs from many different devices by
-sending a unique environmental variable for `"LOGZ_TYPE": "my-custom-type"` during install. This type can then be added as a filter in the logz [Kibana](https://app.logz.io/#/dashboard/kibana) > Discover screen. just add a filter in the upper left to just see the results from your installed service group.
+sending a unique environmental variable for `"LOGGLY_TAG": "my-custom-tag"` during install. This type can then be added as a filter in the logz [Kibana](https://app.logz.io/#/dashboard/kibana) > Discover screen. just add a filter in the upper left to just see the results from your installed service group.
 
-It  comes with the `fluent-plugin-logzio` plugin
+It  comes with the `fluent-plugin-loggly` plugin
 installed.
 
 ## Install example snippet
@@ -35,10 +35,10 @@ This example uses our [app-lights](https://hub.docker.com/r/oaklabs/app-lights) 
       }
     },
     {
-      "image": "index.docker.io/oaklabs/component-fluentd:logzio",
+      "image": "index.docker.io/oaklabs/component-fluentd:loggly",
       "environment": {
-        "LOGZ_TYPE": "my-custom-type",
-        "LOGZ_TOKEN": "xxxxxxxxxxxxxxxxxx"
+        "LOGGLY_TAG": "my-custom-tag",
+        "LOGGLY_TOKEN": "xxxxxxxxxxxxxxxxxx"
       }
     }
   ]

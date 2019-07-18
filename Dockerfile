@@ -3,7 +3,7 @@ USER root
 ENTRYPOINT []
 
 RUN apk add --no-cache --virtual .build-deps build-base ruby-dev \
-    && gem install fluent-plugin-logzio \
+    && gem install fluent-plugin-loggly \
     && apk del .build-deps
 COPY ./fluentd.conf /fluentd.conf
 
