@@ -5,7 +5,7 @@ This component uses
 logs to Loggly. All of the containers in your OakOS services array will have their logs forwarded.
 
 After creating an account on [https://www.loggly.com/](https://www.loggly.com) you can go to
-[https://zivelo.loggly.com/account/users/api/tokens](https://zivelo.loggly.com/account/users/api/tokens) to get your personal token. This token will need to be passed as an environmental variable at install time like: `"LOGGLY_TOKEN": "xxxxxxxxxxxxxxxxxxxxxxxx"`
+[https://zivelo.loggly.com/account/users/api/tokens](https://zivelo.loggly.com/account/users/api/tokens) to get your personal token. Remember that in our case `zivelo` in the url is there because that was the company defined when setting up our account. Your login URLs will be the same but replacing zivelo with your company name. This token will need to be passed as an environmental variable at install time like: `"LOGGLY_TOKEN": "xxxxxxxxxxxxxxxxxxxxxxxx"`
 
 This container can be adapted to send logs from many different devices by
 sending a unique environmental variable for `"LOGGLY_TAG": "mycustomtag"` during install. This type can then be added as a filter in the Loggly [Search](https://zivelo.loggly.com/search) screen. Just add a filter in the input box like `tag:mycustomtag`
