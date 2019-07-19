@@ -16,3 +16,12 @@ Stackdriver, a service account credentials file should be mounted at
 See the
 [Google Cloud Plugin docs](https://github.com/GoogleCloudPlatform/fluent-plugin-google-cloud)
 for instructions on getting GCP service account credentials.
+
+## Other Shippers
+
+Fluentd has many plugins to assist with shipping logs to various aggregators. Here are a few examples:
+
+* Logz - example [here](https://github.com/OakLabsInc/component-fluentd/tree/logzio)
+* Loggly - example [here](https://github.com/OakLabsInc/component-fluentd/tree/loggly)
+
+Many other input/output plugins can be found at https://www.fluentd.org/plugins/all#filter
