@@ -8,8 +8,7 @@ After creating an account on [https://www.loggly.com/](https://www.loggly.com) y
 [https://zivelo.loggly.com/account/users/api/tokens](https://zivelo.loggly.com/account/users/api/tokens) to get your personal token. This token will need to be passed as an environmental variable at install time like: `"LOGGLY_TOKEN": "xxxxxxxxxxxxxxxxxxxxxxxx"`
 
 This container can be adapted to send logs from many different devices by
-sending a unique environmental variable for `"LOGGLY_TAG": "my-custom-tag"` during install. This type can then be added as a filter in the logz [Kibana](https://app.logz.io/#/dashboard/kibana) > Discover screen. just add a filter in the upper left to just see the results from your installed service group.
-
+sending a unique environmental variable for `"LOGGLY_TAG": "mycustomtag"` during install. This type can then be added as a filter in the Loggly [Search](https://zivelo.loggly.com/search) screen. Just add a filter in the input box like `tag:mycustomtag`
 It  comes with the `fluent-plugin-loggly` plugin
 installed.
 
