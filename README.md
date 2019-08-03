@@ -12,35 +12,27 @@ sending a unique environmental variable for `"LOGGLY_TAG": "mycustomtag"` during
 It  comes with the `fluent-plugin-loggly` plugin
 installed.
 
-## Install example snippet
-
-This example uses our [app-lights](https://hub.docker.com/r/oaklabs/app-lights) and [component-oak-lights](https://hub.docker.com/r/oaklabs/component-oak-lights) for demonstration purposes. These are all public containers and no usernames and passwords are needed.
+## Example Installation
 
 ``` json
 {
   "services": [
     {
-      "image": "index.docker.io/oaklabs/app-lights:2.1.0",
+      "image": "index.docker.io/oaklabs/app-example:release-1.0.1",
       "environment": {
-        "LIGHTS_HOST": "localhost:9100",
-        "PLATFORM_HOST": "localhost:443",
-        "NODE_ENV": "production"
-      }
-    },
-    {
-      "image": "index.docker.io/oaklabs/component-oak-lights:0.0.3",
-      "environment": {
-        "PORT": "9100"
+        "TZ": "America/Pheonix"
       }
     },
     {
       "image": "index.docker.io/oaklabs/component-fluentd:loggly",
       "environment": {
-        "LOGGLY_TAG": "my-custom-tag",
-        "LOGGLY_TOKEN": "xxxxxxxxxxxxxxxxxx"
+        "LOGGLY_TAG": "{{logglyTag}}",
+        "LOGGLY_TOKEN": "{{logglyToken}}"
       }
     }
   ]
 }
 ```
 
+* `{{logglyTag}}` Postman environmental variable that is sent to allow Loggly query/filter.
+* `{{logglyToken}}` Postman environmental variable that is your personal Loggly access token.
